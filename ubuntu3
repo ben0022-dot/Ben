@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ubuntu Fusion Cuisine – Kenyan Fusion Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5e6d3, #e8f4f8);
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding: 0;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* HERO with African‑dishes‑style background */
+    .hero {
+      height: 64vh;
+      min-height: 300px;
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)),
+        url('https://images.unsplash.com/photo-1546069901-bfea0d5da0b1?ixlib=rb‑4.0.3&auto=format&fit=crop&w=1200&q=80') 
+        center/cover no‑repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.4rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Social icons bar */
+    .social-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+    .social-bar a {
+      color: #fff;
+      font-size: 1.3rem;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .social-bar a:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+
+    /* Main content padding */
+    .main {
+      padding: 1.5rem 1rem 3rem 1rem;
+    }
+
+    /* Menu grid (mobile‑first) */
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.3rem;
+      margin-top: 1rem;
+    }
+
+    /* Glass‑morphism card with background image */
+    .glass-card {
+      background: 
+        linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.25)),
+        url('https://images.unsplash.com/photo-1546069901‑dashboard‑burger‑plate.jpg?ixlib=rb‑4.0.3&auto=format&fit=crop&w=800&q=70') 
+        center/cover no‑repeat;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+      padding: 1.4rem 1.2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 100%;
+      margin: 0 auto;
+      color: #333;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #b36b39;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: #555;
+      margin-bottom: 0.7rem;
+      line-height: 1.45;
+    }
+
+    .card-price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.9rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      padding: 0.6rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background: #128c7e;
+      transform: scale(1.03);
+    }
+
+    /* Tablet/desktop tweaks */
+    @media (min-width: 600px) {
+      .menu {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.6rem;
+      }
+
+      .hero {
+        height: 60vh;
+      }
+
+      .social-bar {
+        gap: 1.6rem;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero p {
+        font-size: 1.15rem;
+      }
+
+      .social-bar {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      background: #f9f3e8;
+      border-top: 1px solid #e5d6c8;
+      color: #555;
+    }
+
+    footer a {
+      color: #b36b39;
+      text-decoration: none;
+      margin: 0 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #8c4e2c;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION with African‑dishes background -->
+  <section class="hero">
+    <h1>Ubuntu Fusion Cuisine</h1>
+    <p>Modern Kenyan flavours, global soul</p>
+    <div class="social-bar">
+      <a href="https://instagram.com/ubuntufusionkenya" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://facebook.com/ubuntufusionkenya" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://x.com/ubuntufusionkenya" target="_blank" aria-label="X (Twitter)">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://tiktok.com/@ubuntufusionkenya" target="_blank" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- MAIN MENU CONTENT -->
+  <main class="main">
+    <h2
+      style="
+        text-align: center;
+        margin-bottom: 1.2rem;
+        color: #b36b39;
+        font-size: 1.3rem;
+        font-weight: 600;
+      "
+    >
+      Kenyan Fusion Menu
+    </h2>
+
+    <section class="menu">
+      <!-- FOODS (each card has African‑dish style image) -->
+      <article class="glass-card">
+        <h3 class="card-title">Nyama Choma Fusion Platter</h3>
+        <p class="card-desc">
+          Kenyan‑style grilled beef & goat with spicy peri‑peri marinade and coconut‑sauce dip.
+        </p>
+        <p class="card-price">KSh 1,450</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Nyama%20Choma%20Fusion%20Platter%20for%20pickup" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Ugali & Coconut Curry Fish</h3>
+        <p class="card-desc">
+          Classic Kenyan ugali with East‑African coconut curry fish, lime‑herb garnish.
+        </p>
+        <p class="card-price">KSh 1,250</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Ugali%20%26%20Coconut%20Curry%20Fish%20for%20delivery" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Sukuma & Kimchi Bowl</h3>
+        <p class="card-desc">
+          Kenyan sautéed sukuma with kimchi‑style pickled greens and gochujang‑infused sauce.
+        </p>
+        <p class="card-price">KSh 950</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Sukuma%20%26%20Kimchi%20Bowl%20for%20pickup" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Nairobi Beef Wet Fry Tacos</h3>
+        <p class="card-desc">
+          Beef “wet fry” spiced base in soft tacos with coriander, lime, and chapati‑style shell.
+        </p>
+        <p class="card-price">KSh 1,150</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Nairobi%20Beef%20Wet%20Fry%20Tacos%20for%20delivery" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Coconut Pilau & Braised Chicken</h3>
+        <p class="card-desc">
+          Kenyan‑spiced coconut pilau rice with slow‑braised nyama‑style chicken.
+        </p>
+        <p class="card-price">KSh 1,300</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Coconut%20Pilau%20%26%20Braised%20Chicken%20for%20pickup" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Plant‑based Mshikaki Skewers</h3>
+        <p class="card-desc">
+          Kenyan‑style skewers with plant‑based “nyama” chunks, peanut‑spice glaze, grilled over charcoal.
+        </p>
+        <p class="card-price">KSh 1,050</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Plant‑based%20Mshikaki%20Skewers%20for%20delivery" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <!-- DRINKS (same glass‑morphism + African‑dish style background) -->
+      <article class="glass-card">
+        <h3 class="card-title">Tamarind Mango Mojito</h3>
+        <p class="card-desc">
+          Tamarind‑sweet mango, mint, lime, soda. Non‑alcoholic option available.
+        </p>
+        <p class="card-price">KSh 450</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Tamarind%20Mango%20Mojito" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Kawawa Coffee Colada</h3>
+        <p class="card-desc">
+          Kenyan arabica coffee blended with coconut cream and pineapple.
+        </p>
+        <p class="card-price">KSh 400</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Kawawa%20Coffee%20Colada" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Nairobi Sunset Spritz</h3>
+        <p class="card-desc">
+          Hibiscus‑tea base, orange liqueur (optional), soda; inspired by Kenyan sunsets.
+        </p>
+        <p class="card-price">KSh 550</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Nairobi%20Sunset%20Spritz" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Kenyan Ginger‑Mango Lassi</h3>
+        <p class="card-desc">
+          Yogurt‑based lassi with fresh ginger, mango, and a pinch of cardamom.
+        </p>
+        <p class="card-price">KSh 350</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Kenyan%20Ginger‑Mango%20Lassi" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+
+      <article class="glass-card">
+        <h3 class="card-title">Coconut‑Lebanon Mint Lemonade</h3>
+        <p class="card-desc">
+          Coconut water, lemon, mint, honey; East‑African meets Middle‑Eastern.
+        </p>
+        <p class="card-price">KSh 400</p>
+        <a 
+          href="https://wa.me/254757607094?text=I%20want%20to%20order%20Coconut‑Lebanon%20Mint%20Lemonade" 
+          target="_blank" 
+          class="whatsapp-btn"
+        >
+          Order on WhatsApp
+        </a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Ubuntu Fusion Cuisine</p>
+    <p>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="https://wa.me/254757607094?text=I%20want%20to%20place%20a%20general%20order" target="_blank">
+        WhatsApp Order
+      </a>
+    </p>
+  </footer>
+
+</body>
+</html>

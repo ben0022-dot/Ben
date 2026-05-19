@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenya Travel Planner</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Kenya Travel Planner</h1>
+    <p>Hotels, restaurants, parks, and live prices in one place.</p>
+  </header>
+
+  <main class="container">
+    <section class="search-panel">
+      <input id="city" placeholder="Search city e.g. Nairobi" />
+      <button onclick="loadHotels()">Search Hotels</button>
+      <button onclick="loadParks()">Load Parks</button>
+      <button onclick="loadRestaurants()">Load Restaurants</button>
+    </section>
+
+    <section id="results" class="grid"></section>
+  </main>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
